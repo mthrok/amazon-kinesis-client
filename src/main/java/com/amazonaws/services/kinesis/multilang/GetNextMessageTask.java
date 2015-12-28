@@ -68,7 +68,8 @@ class GetNextMessageTask extends LineReaderTask<Message> {
                 return new HandleLineResult<Message>(objectMapper.readValue(line, Message.class));
             }
         } catch (IOException e) {
-            LOG.info("Skipping unexpected line on STDOUT for shard " + getShardId() + ": " + line);
+            System.out.println(getShardId() + ": " + line);
+            System.out.flush();
         }
         return new HandleLineResult<Message>();
     }

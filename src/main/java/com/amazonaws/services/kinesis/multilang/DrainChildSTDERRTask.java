@@ -31,8 +31,8 @@ class DrainChildSTDERRTask extends LineReaderTask<Boolean> {
 
     @Override
     protected HandleLineResult<Boolean> handleLine(String line) {
-        LOG.error("Received error line from subprocess [" + line + "] for shard " + getShardId());
-        System.err.println(line);
+        System.err.println(getShardId() + ": " + line);
+        System.err.flush();
         return new HandleLineResult<Boolean>();
     }
 
