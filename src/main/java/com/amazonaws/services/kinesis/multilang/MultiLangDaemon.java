@@ -114,14 +114,9 @@ public class MultiLangDaemon implements Callable<Integer> {
      *        well as the name of an executable.
      */
     public static void main(String[] args) {
-
-        if (args.length == 0) {
-            printUsage(System.err, "You must provide a properties file");
-            System.exit(1);
-        }
         MultiLangDaemonConfig config = null;
         try {
-            config = new MultiLangDaemonConfig(args[0]);
+            config = new MultiLangDaemonConfig("record-processor.properties");
         } catch (IOException e) {
             printUsage(System.err, "You must provide a properties file");
             System.exit(1);
